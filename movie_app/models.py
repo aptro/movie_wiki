@@ -6,6 +6,7 @@ class GenreMeta(models.Model):
 
 
 class MovieData(models.Model):
+    movie_id = models.AutoField(primary_key=True)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
     name = models.TextField(null=False, db_index=True)
