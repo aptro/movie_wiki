@@ -43,10 +43,10 @@ class MoviePermission(permissions.BasePermission):
 
 
 class MovieFilter(django_filters.FilterSet):
-    max_popularity = django_filters.NumberFilter(name="popularity", lookup_type="=lt")
-    min_popularity = django_filters.NumberFilter(name="popularity", lookup_type="gt")
-    max_imdb_score = django_filters.NumberFilter(name="imdb_score", lookup_type="lt")
-    min_imdb_score = django_filters.NumberFilter(name="imdb_score", lookup_type="gt")
+    max_popularity = django_filters.NumberFilter(name="popularity", lookup_type="lte")
+    min_popularity = django_filters.NumberFilter(name="popularity", lookup_type="gte")
+    max_imdb_score = django_filters.NumberFilter(name="imdb_score", lookup_type="lte")
+    min_imdb_score = django_filters.NumberFilter(name="imdb_score", lookup_type="gte")
 
     class Meta:
         model = MovieData
