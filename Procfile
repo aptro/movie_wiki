@@ -1,0 +1,1 @@
+web: gunicorn movie_wiki.wsgi --log-file -
