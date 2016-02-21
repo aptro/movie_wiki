@@ -1,4 +1,5 @@
 from django.db import models
+from decimal import Decimal
 
 
 class GenreMeta(models.Model):
@@ -24,8 +25,8 @@ class MovieData(models.Model):
     modified_at = models.DateTimeField(auto_now=True)
     name = models.TextField(null=False, db_index=True, unique=True)
     director = models.ForeignKey(DirectorMeta, related_query_name="director")
-    imdb_score = models.FloatField(default=None)
-    popularity = models.FloatField(default=None)
+    imdb_score = models.DecimalField(default=Decimal(0), decimal_places=2, max_digits=5)
+    popularity = models.DecimalField(default=Decimal(0), decimal_places=2, max_digits=15)
     genre = models.ManyToManyField(GenreMeta, related_name="movies", related_query_name="movie")
 
     class Meta:
