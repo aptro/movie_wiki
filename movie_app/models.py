@@ -22,7 +22,7 @@ class MovieData(models.Model):
     movie_id = models.AutoField(primary_key=True)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
-    name = models.TextField(null=False, db_index=True)
+    name = models.TextField(null=False, db_index=True, unique=True)
     director = models.ForeignKey(DirectorMeta, related_query_name="director")
     imdb_score = models.FloatField(default=None)
     popularity = models.FloatField(default=None)
